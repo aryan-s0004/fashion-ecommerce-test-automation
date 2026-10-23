@@ -14,11 +14,11 @@ The project uses npm, TypeScript, Playwright Test, per-test browser contexts and
 
 ## Actual execution
 
-On 2026-10-24, `npm run typecheck` passed and `npx playwright test --list` discovered the smoke case in four configured projects. A Chromium run executed one test: 0 passed, 1 failed, 0 skipped, 0 flaky. Navigation failed with `net::ERR_HTTP2_PROTOCOL_ERROR` before an HTTP response. The actual failure report and screenshot/video/trace evidence were generated. Search tests and other browsers were not executed.
+On 2026-10-24, `npm run typecheck` passed and test discovery found 4 cases across four projects. Across separate homepage-only runs there were 3 passes and 2 desktop Chromium failures with `net::ERR_HTTP2_PROTOCOL_ERROR` before an HTTP response. Search cases were not executed. The latest JSON report is for the desktop/mobile Chromium run and records 1 pass and 1 failure; Firefox/WebKit terminal output from the preceding run recorded 2 passes. A screenshot, video and trace were generated for the desktop Chromium failure.
 
 ## Defect analysis and limitations
 
-No Myntra production defect is confirmed. The observed failure is classified as an environment/network availability blocker. No page structure was observed, and search assertions are provisional. Product, category, filter, bag, responsive, accessibility, visual and account workflows remain unverified.
+No Myntra production defect is confirmed. Desktop Chromium's error is classified as a browser/network-specific execution blocker; Firefox and WebKit observed the branded homepage. Search assertions remain provisional. Product, category, filter, bag, responsive, accessibility, visual and account workflows remain unverified.
 
 ## Deliverables and next steps
 
