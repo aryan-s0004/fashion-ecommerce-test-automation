@@ -19,4 +19,6 @@ Start with public homepage and search behavior, then extend to navigation, listi
 
 ## Current evidence
 
-The initial TCP connection to `www.myntra.com:443` failed. No current page structure has been observed yet. Repository setup and test implementation status are tracked in [PROJECT_STATE.md](../PROJECT_STATE.md).
+The live desktop homepage search field is a textbox named “Search for products, brands and more.” Submitting `women kurta` produced a “Women Kurta” results page. The public shopping bag displayed the empty-state message “There is nothing in your bag.” These observations support the current homepage, search, and read-only empty-bag checks.
+
+The latest full Playwright run is recorded in [EXECUTION_REPORT.md](EXECUTION_REPORT.md) and can be summarized from the generated JSON with `npm run report:summary`. Desktop Chromium navigation and the mobile search locator remain execution limitations. No production defect has been confirmed. Current repository state and remaining work are tracked in [PROJECT_STATE.md](../PROJECT_STATE.md).

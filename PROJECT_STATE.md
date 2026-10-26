@@ -1,7 +1,22 @@
 # Project State
 
+## Current audit baseline
+- Audit date: 2026-10-27. Branch `main` was clean and synchronized with `origin/main` at `86f7aab` before this hardening batch.
+- Scope: 3 test files, 5 scenario definitions, 4 configured browser projects (20 regression executions); no page objects or custom fixtures. The small test set is directly expressed in Playwright tests.
+- Dependencies are pinned in `package.json` / `package-lock.json`; `npm audit --audit-level=moderate` reported zero vulnerabilities.
+- A tracked-file scan found no high-confidence credential/token/private-key patterns. `.env.example` has only the public base URL; `.env*`, Playwright auth state, reports and test artifacts are ignored.
+- GitHub Actions has a least-privilege `contents: read` permission, lockfile install and typecheck on pushes/PRs; live-site testing is manual dispatch only. The latest verified workflow typecheck passed and live-smoke was skipped as configured.
+
+## Audit findings and remediation plan
+- **P1 — Chromium desktop live-site navigation:** all 5 current project checks failed with `ERR_HTTP2_PROTOCOL_ERROR`; classified as browser/network execution blocker, not a Myntra defect. Keep evidence and retry only after the environment changes.
+- **P1 — Mobile search locator:** 3 checks cannot find a role=textbox because the observed mobile page exposes a generic search bar. Do not weaken selectors; inspect a supported mobile interaction before implementing new assertions.
+- **P2 — Out-of-date and conflicting project records:** older docs described an unavailable site, omitted the empty-bag test, and had stale CI status. Updated the deliverable docs/checkpoint against observed browser behavior and actual reports.
+- **P2 — No focused test taxonomy or report-derived metrics:** added Playwright tags, selection scripts and a JSON report summary; selector discovery is verified and the summary is checked against the generated report.
+- **P2 — Auth state has no consumer:** manual capture is optional and local-only, but no authenticated fixture or expiry validation exists because no authenticated scenarios are in scope. Add a state consumer only alongside a safe, verified auth test.
+- **Next:** verify mobile search interaction and additional product/listing workflows live before adding scenarios; investigate desktop Chromium protocol behavior only when a materially different network/browser environment is available.
+
 ## Current phase
-Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The latest full verification completed with live-browser/network and mobile search locator limitations documented.
+Core framework hardening completed for the implemented scope. Additional product browsing and mobile search coverage remain blocked on reliable live observation.
 
 ## Repository baseline
 - Local repository: `fashion-ecommerce-test-automation`.
@@ -16,7 +31,7 @@ Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The 
 - Playwright Test + TypeScript + npm; configured targets include Chromium, Firefox, WebKit, and mobile Chromium.
 - Latest full run: Firefox and WebKit passed all five tests each; mobile Chromium passed homepage and empty-bag checks; desktop Chromium failed all five tests at navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search failed because the role-based textbox locator was not found.
 - Live browser reconnaissance observed the desktop search field and a successful `women kurta` result at `/women-kurta?rawQuery=women%20kurta`, with title/heading `Women Kurta`.
-- GitHub Actions run for commit `3929e89` passed the typecheck job; the live-smoke job was skipped because the run was triggered by push. No run for the later `b6e14cd` push was visible at the latest Actions lookup.
+- GitHub Actions run for commit `86f7aab` passed the typecheck job; the live-smoke job was skipped because the run was triggered by push.
 - Never treat unavailability as a passing test or a product defect.
 
 ## Completed
@@ -31,13 +46,20 @@ Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The 
 - Executed homepage smoke in all four projects: Firefox, WebKit and mobile Chromium passed; desktop Chromium failed twice before assertions.
 - Focused search run, serial: Firefox and WebKit passed all three cases; desktop Chromium failed at navigation and mobile search failed the provisional textbox locator.
 - Latest full serial suite: 12 passed, 8 failed out of 20; Firefox and WebKit passed all five each, mobile homepage/empty-bag passed, desktop Chromium failed all five at navigation, and mobile search failed on the role-based textbox locator.
+- Final hardening regression (`npm run test:regression`): 20 tests, 12 passed, 8 failed, 0 skipped, 0 flaky, 0 retries, 130.00 seconds. Per-project counts are in `npm run report:summary`.
 - Initial default-parallel search run selected 10 workers and ended in Node.js out-of-memory; local Playwright config now defaults to one worker (CI remains two).
 
 ## Commands and validation
 - `node --version`: v22.23.1.
 - `npm --version`: 12.0.1.
 - `git --version`: 2.55.0.windows.4.
-- `npm run typecheck`: passed.
+- `npm run typecheck`: passed after the test taxonomy changes.
+- `npm audit --audit-level=moderate`: passed; zero vulnerabilities.
+- `npm ls --depth=0`: pinned direct dependencies installed without errors.
+- `node --check scripts/setup-auth.mjs` and `node --check scripts/summarize-report.mjs`: passed.
+- `npm run report:summary`: verified against the actual Playwright JSON report.
+- Tag discovery via `npx playwright test --list`: verified smoke (4), search (8), bag (4), accessibility (4), responsive mobile (1), regression (20).
+- Tracked-file scan found no high-confidence secret patterns; `.env*`, auth state, reports and test results ignore rules verified.
 - `npx playwright test --list`: 20 project-specific test entries (5 cases × 4 configured projects).
 - Final `npm ci --ignore-scripts --no-audit --no-fund`: succeeded from the committed lockfile.
 - Final `npm run typecheck`: passed.
@@ -54,7 +76,7 @@ Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The 
 ## Blockers
 - Desktop Chromium remains blocked by HTTP/2 errors; previous WebKit runs had intermittent timeout/DNS failures, while the latest full run passed all WebKit checks.
 - Search visibility and query navigation passed in Firefox and WebKit. The mobile search UI is a generic banner and its interaction remains unverified.
-- CI typecheck is verified; no CI live smoke has been run. Product/category/filter/bag behavior remains unverified.
+- CI typecheck is verified; live smoke remains manual and was skipped on push. Product/category/filter/bag mutation remains unverified; empty-bag state is tested.
 - Manual sign-in setup was added; no personal authenticated state or private account behavior has been exercised.
 
 ## Milestones
@@ -81,6 +103,7 @@ Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The 
 - `26e6418 docs: record cross-browser smoke results` — pushed; remote `main` confirmed at this commit during the current audit.
 - `3929e89 feat: add manual authentication setup` — pushed; remote verified.
 - `b6e14cd test: cover the public empty shopping bag state` — pushed; remote verified.
+- `86f7aab docs: record empty bag verification checkpoint` — pushed; remote verified; latest verified CI typecheck passed.
 
 ## Exact next action
 Continue live reconnaissance of category, product and public bag flows when the browser/network is stable; add assertions only for behavior verified in that session. Authenticated scenarios remain blocked on a user's manual sign-in.

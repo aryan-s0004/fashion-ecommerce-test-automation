@@ -10,3 +10,6 @@
 8. Which live observations are needed before expanding tests to product listings, filters and bag behavior?
 9. How does the traceability matrix connect requirements to automated test cases?
 10. Why is CI live-site execution manual while type checking runs on pushes and pull requests?
+11. How do Playwright test tags support smoke, search, bag, accessibility, responsive, and regression subsets?
+12. How does `npm run report:summary` derive run metrics from JSON rather than hard-coded counts?
+13. Why is a page-object layer not yet justified for the current small set of independent public checks?

@@ -6,3 +6,4 @@
 - No category browsing, product details, filters, sorting, shopping-bag mutation, responsive-specific assertions, accessibility audit, visual snapshots, or account scenarios have been verified.
 - No production defect is claimed. Do not bypass network/site restrictions or bot protections.
 - Manual sign-in setup saves browser storage state locally, but it has not been exercised with a personal account. No authenticated test results are claimed.
+- The optional manual sign-in helper captures storage state, but there is no authenticated-test fixture, expiry detection, or test consumer. Do not treat captured state as a verified authentication workflow.

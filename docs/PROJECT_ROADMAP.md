@@ -24,4 +24,5 @@ Each milestone is validated and committed separately; push only when the result 
 - Myntra may block or limit automation or be unreachable from the execution network.
 - Dynamic product content can make hard-coded assertions unreliable.
 - Browser binaries and npm registry connectivity may differ from cached environment state.
-- The GitHub remote was verified empty; authentication and push access still require a push attempt.
+- Browser-specific navigation can differ; desktop Chromium currently reports `ERR_HTTP2_PROTOCOL_ERROR`.
+- Product listing/detail, filter/sorting, bag mutation and authenticated scenarios remain out of verified scope.

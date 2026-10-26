@@ -16,3 +16,9 @@ Current automation covers public homepage response/identity, desktop search visi
 ## Execution policy
 
 Each test is independent. A navigation/network/bot restriction is recorded as blocked environment execution, not as a passing test or confirmed Myntra defect. Failure screenshots, video, traces, HTML and JSON reports are retained locally and excluded from Git.
+
+## Test selection and reporting
+
+Playwright tags select the current implemented scope: `@smoke`, `@search`, `@bag`, `@accessibility`, `@responsive`, and `@regression`. The mobile responsive subset currently contains the empty-bag visibility test; the accessibility subset checks the semantic search textbox/name only, not WCAG conformance. Product commands are intentionally absent until public product workflows are inspected and automated.
+
+Run `npm run report:summary` after a test run to derive total outcomes, retry count, duration and browser-project breakdown from the JSON report; its numbers describe the last report only.

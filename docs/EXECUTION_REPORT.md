@@ -8,6 +8,8 @@
 - `npm run typecheck` passed.
 - Focused search run (`npx playwright test tests/search/search.spec.ts --workers=1`): 6 passed, 6 failed. Firefox and WebKit passed all three search cases. Desktop Chromium failed all three at homepage navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`; mobile Chromium loaded the page but the role-based textbox locator did not match the observed mobile search bar.
 - Latest full serial run (`npx playwright test --workers=1`): 12 passed, 8 failed across 20 cases. Firefox and WebKit passed all five cases each. Mobile Chromium passed homepage and empty-bag checks but failed all three search cases because the search bar was exposed as a generic clickable banner rather than a textbox. Desktop Chromium failed all five checks at navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`.
+- Final hardening regression (`npm run test:regression`): 20 total, 12 passed, 8 failed, 0 skipped, 0 flaky, 0 retries, 130.00 seconds. `npm run report:summary` derives the browser breakdown below from `reports/results.json`.
+- Project summary: Chromium desktop 0/5 passed; Firefox desktop 5/5; WebKit desktop 5/5; Chromium mobile 2/5.
 - The read-only empty-bag check passed in Firefox, WebKit and mobile Chromium. Desktop Chromium could not reach `/checkout/cart` because of the same HTTP/2 error.
 - Live browser reconnaissance observed the desktop textbox named “Search for products, brands and more”. Submitting “women kurta” navigated to `/women-kurta?rawQuery=women%20kurta` and displayed the “Women Kurta” page title and heading. Search assertions remain live-site checks, not stable guarantees.
 - The mobile screenshot shows a visually rendered search banner, but the banner is not exposed as a textbox. No search interaction was claimed as validated on mobile.

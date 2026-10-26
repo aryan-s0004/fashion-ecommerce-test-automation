@@ -5,7 +5,12 @@
   "description": "Black-box Playwright QA automation for the public Myntra website",
   "scripts": {
     "test": "playwright test",
-    "test:smoke": "playwright test tests/smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:search": "playwright test --grep @search",
+    "test:bag": "playwright test --grep @bag",
+    "test:a11y": "playwright test --grep @accessibility",
+    "test:responsive": "playwright test --project=chromium-mobile --grep @responsive",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
     "report": "playwright show-report",
@@ -13,6 +18,7 @@
     "test:firefox": "playwright test --project=firefox-desktop",
     "test:webkit": "playwright test --project=webkit-desktop",
     "auth:setup": "node scripts/setup-auth.mjs",
+    "report:summary": "node scripts/summarize-report.mjs",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

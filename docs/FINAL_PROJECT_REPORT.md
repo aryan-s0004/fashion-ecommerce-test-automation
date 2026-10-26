@@ -6,15 +6,15 @@ This project establishes a TypeScript/Playwright framework for black-box testing
 
 ## Scope and method
 
-Implemented tests cover homepage response/identity and search visibility, non-empty query navigation, and empty-input handling. Search expectations remain provisional because the public site behaved inconsistently during cross-browser runs. Tests use Playwright Test with Chromium desktop, Firefox desktop, WebKit desktop and mobile Chromium projects configured.
+Implemented tests cover homepage response/identity, desktop search visibility, non-empty query navigation, empty-input handling, and read-only empty-bag guidance. Search results are live-site-dependent; the desktop search field and one query result were independently observed. Tests use Playwright Test with Chromium desktop, Firefox desktop, WebKit desktop and mobile Chromium projects configured.
 
 ## Architecture and test design
 
-The project uses npm, TypeScript, Playwright Test, per-test browser contexts and HTML/JSON reporting. Failure screenshots, video and traces are enabled. Design documentation covers equivalence partitioning, the empty-string boundary, a two-row search decision table and risk-based priorities. A read-only empty-shopping-bag check has been implemented from observed public behavior and is pending execution.
+The project uses npm, TypeScript, Playwright Test, isolated per-test browser contexts and HTML/JSON reporting. Failure screenshots, video and traces are enabled. Smoke, search, bag, accessibility, responsive, and regression subsets use Playwright tags. `npm run report:summary` reads actual Playwright JSON results for total outcomes, retries, duration and project breakdown. No page-object layer was added: the small, independent scenarios do not yet justify extra indirection. Design documentation covers equivalence partitioning, the empty-string boundary, a two-row search decision table and risk-based priorities. The read-only empty-bag check passed in three projects.
 
 ## Actual execution
 
-On 2026-10-27, `npm run typecheck` passed. The latest full serial run completed 20 tests with 12 passes and 8 failures: all Firefox and WebKit cases passed, mobile homepage and empty-bag checks passed, and five desktop Chromium plus three mobile search cases failed. Desktop Chromium failed before navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search could not locate a textbox in the observed banner. The empty-bag check passed in Firefox, WebKit and mobile Chromium. A live browser check independently observed a successful “women kurta” search result page. An initial 10-worker run exhausted Node.js memory, so local execution now defaults to one worker. No live-site blocker is reported as a product pass or confirmed product defect.
+On 2026-10-27, the final hardening regression completed 20 tests: 12 passed, 8 failed, 0 skipped, 0 flaky, and 0 retries in 130.00 seconds. Firefox and WebKit passed all 5 cases each; mobile Chromium passed 2/5; desktop Chromium passed 0/5. Desktop Chromium failed before navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search could not locate an accessible textbox in the observed banner. The read-only empty-bag check passed in Firefox, WebKit and mobile Chromium. `npm run typecheck` passed and `npm audit --audit-level=moderate` reported zero vulnerabilities. A live browser check independently observed a successful “women kurta” result page. An initial 10-worker run exhausted Node.js memory, so local execution defaults to one worker. No live-site blocker is reported as a product pass or confirmed product defect.
 
 ## Defect analysis and limitations
 
@@ -22,4 +22,4 @@ No Myntra production defect is confirmed. Desktop Chromium's error is a browser/
 
 ## Deliverables and next steps
 
-The repository includes the Playwright setup, smoke/search tests, traceability and execution documents, GitHub Actions workflow, README, demonstration script and presentation outline. Next, rerun the cross-browser suite when Myntra and DNS are stable, inspect the mobile search interaction, and expand only to workflows observed to be publicly accessible.
+The repository includes Playwright setup, tagged smoke/search/empty-bag checks, a local-only manual authentication capture helper, generated-result summary tooling, traceability and execution documents, GitHub Actions workflow, README, demonstration script and presentation outline. Next, inspect mobile search interaction and product/listing behavior when the live browser is stable, then add tests only for verified public workflows.

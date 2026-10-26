@@ -24,6 +24,11 @@ npm ci
 npx playwright install chromium
 npm run typecheck
 npm run test:smoke
+npm run test:search
+npm run test:bag
+npm run test:a11y
+npm run test:responsive
+npm run test:regression
 npm test
 npm run test:headed
 npm run test:ui
@@ -31,9 +36,12 @@ npm run test:chromium
 npm run test:firefox
 npm run test:webkit
 npm run report
+npm run report:summary
 ```
 
-The tests target the real live site. Local runs use one Playwright worker by default to avoid resource exhaustion; CI uses two. Do not interpret blocked navigation as a pass.
+The test subsets are selected by Playwright tags (`@smoke`, `@search`, `@bag`, `@accessibility`, `@responsive`, `@regression`). `test:responsive` runs the tagged empty-bag visibility check on mobile Chromium. Accessibility checks are limited to the semantic search textbox/name and do not certify WCAG conformance. Product workflows have no test command yet because product behavior has not been reliably inspected and automated.
+
+The tests target the real live site. Local runs use one Playwright worker by default to avoid resource exhaustion; CI uses two. Do not interpret blocked navigation as a pass. `report:summary` reads the latest `reports/results.json`; run a test command first to refresh the report.
 
 ## Optional manual sign-in
 
