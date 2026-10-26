@@ -1,7 +1,7 @@
 # Project State
 
 ## Current phase
-Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. The latest full verification completed with live-browser/network and mobile search locator limitations documented.
+Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The latest full verification completed with live-browser/network and mobile search locator limitations documented.
 
 ## Repository baseline
 - Local repository: `fashion-ecommerce-test-automation`.
@@ -14,7 +14,7 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. The late
 ## Target and architecture
 - Actual target: `https://www.myntra.com/`.
 - Playwright Test + TypeScript + npm; configured targets include Chromium, Firefox, WebKit, and mobile Chromium.
-- Latest full run: Firefox and WebKit passed all four tests each; mobile Chromium passed homepage only; desktop Chromium failed all four tests at navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search failed because the role-based textbox locator was not found.
+- Latest full run: Firefox and WebKit passed all five tests each; mobile Chromium passed homepage and empty-bag checks; desktop Chromium failed all five tests at navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search failed because the role-based textbox locator was not found.
 - Live browser reconnaissance observed the desktop search field and a successful `women kurta` result at `/women-kurta?rawQuery=women%20kurta`, with title/heading `Women Kurta`.
 - GitHub Actions run for commit `26e6418` passed the typecheck job; the live-smoke job was skipped because the run was triggered by push.
 - Never treat unavailability as a passing test or a product defect.
@@ -25,11 +25,12 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. The late
 - Milestone 2 Playwright + TypeScript setup, pinned lockfile, scripts and Chromium smoke scaffold.
 - Milestone 3 live-site smoke executed once; navigation failed before response; report and diagnostic artifacts generated.
 - Search cases implemented; desktop search and one query-result flow observed live; traceability/test design/defect/execution/limitations documents created.
+- Read-only empty shopping-bag guidance test implemented and passed in Firefox, WebKit, and mobile Chromium.
 - GitHub Actions workflow separates push/PR typecheck from manual live-site smoke.
 - Viva, demo and presentation outline created.
 - Executed homepage smoke in all four projects: Firefox, WebKit and mobile Chromium passed; desktop Chromium failed twice before assertions.
 - Focused search run, serial: Firefox and WebKit passed all three cases; desktop Chromium failed at navigation and mobile search failed the provisional textbox locator.
-- Latest full serial suite: 9 passed, 7 failed out of 16; Firefox and WebKit passed all four each, mobile homepage passed, desktop Chromium failed all four at navigation, and mobile search failed on the role-based textbox locator.
+- Latest full serial suite: 12 passed, 8 failed out of 20; Firefox and WebKit passed all five each, mobile homepage/empty-bag passed, desktop Chromium failed all five at navigation, and mobile search failed on the role-based textbox locator.
 - Initial default-parallel search run selected 10 workers and ended in Node.js out-of-memory; local Playwright config now defaults to one worker (CI remains two).
 
 ## Commands and validation
@@ -37,14 +38,14 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. The late
 - `npm --version`: 12.0.1.
 - `git --version`: 2.55.0.windows.4.
 - `npm run typecheck`: passed.
-- `npx playwright test --list`: 16 project-specific test entries (4 cases × 4 configured projects).
+- `npx playwright test --list`: 20 project-specific test entries (5 cases × 4 configured projects).
 - Final `npm ci --ignore-scripts --no-audit --no-fund`: succeeded from the committed lockfile.
 - Final `npm run typecheck`: passed.
-- Final `npx playwright test --list`: discovered 16 entries.
+- Final `npx playwright test --list`: discovered 20 entries across four browser projects.
 - `npx playwright install chromium`: installed compatible Chromium build 1194.
 - `npm run test:chromium`: 1 executed, 0 passed, 1 failed; `ERR_HTTP2_PROTOCOL_ERROR` on navigation.
 - `npx playwright test tests/search/search.spec.ts --workers=1`: 6 passed, 6 failed; Firefox/WebKit search passed, Chromium desktop/mobile did not.
-- Latest `npx playwright test --workers=1`: 9 passed, 7 failed; 16 tests completed.
+- Latest `npx playwright test --workers=1`: 12 passed, 8 failed; 20 tests completed.
 - `npm run typecheck`: passed after the local worker default change.
 - Browser-specific homepage runs: Firefox and WebKit passed; mobile Chromium passed; desktop Chromium failed twice with the same protocol error.
 - Generated `reports/html/index.html`, `reports/results.json`, and failed-run screenshot, video, trace under `test-results/` (ignored by Git).
@@ -62,7 +63,7 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. The late
 2. Playwright and TypeScript setup — committed and pushed.
 3. Real website smoke tests — executed in all projects; latest serial run passed Firefox, WebKit and mobile homepage checks; desktop Chromium failed.
 4. Search and navigation — search cases implemented; desktop search observed and Firefox/WebKit passed; mobile interaction remains unverified.
-5. Products, filters, sorting, shopping bag — not implemented; no live interface observations.
+5. Products, filters, sorting, shopping bag — empty-bag guidance implemented and tested; item mutation and product workflows remain unverified.
 6. Negative and non-functional tests — empty-search boundary implemented provisionally; remaining areas not implemented.
 7. Test design and traceability — implemented for current cases.
 8. Diagnostics and reports — actual failed run documented; generated reports ignored by Git.

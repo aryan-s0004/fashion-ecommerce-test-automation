@@ -10,15 +10,15 @@ Implemented tests cover homepage response/identity and search visibility, non-em
 
 ## Architecture and test design
 
-The project uses npm, TypeScript, Playwright Test, per-test browser contexts and HTML/JSON reporting. Failure screenshots, video and traces are enabled. Design documentation covers equivalence partitioning, the empty-string boundary, a two-row search decision table and risk-based priorities.
+The project uses npm, TypeScript, Playwright Test, per-test browser contexts and HTML/JSON reporting. Failure screenshots, video and traces are enabled. Design documentation covers equivalence partitioning, the empty-string boundary, a two-row search decision table and risk-based priorities. A read-only empty-shopping-bag check has been implemented from observed public behavior and is pending execution.
 
 ## Actual execution
 
-On 2026-10-27, `npm run typecheck` passed. The latest full serial run completed 16 tests with 9 passes and 7 failures: all Firefox and WebKit cases passed, the mobile homepage passed, and four desktop Chromium plus three mobile search cases failed. Desktop Chromium failed before navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search could not locate a textbox in the observed banner. A live browser check independently observed a successful “women kurta” search result page. An initial 10-worker run exhausted Node.js memory, so local execution now defaults to one worker. No live-site blocker is reported as a product pass or confirmed product defect.
+On 2026-10-27, `npm run typecheck` passed. The latest full serial run completed 20 tests with 12 passes and 8 failures: all Firefox and WebKit cases passed, mobile homepage and empty-bag checks passed, and five desktop Chromium plus three mobile search cases failed. Desktop Chromium failed before navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search could not locate a textbox in the observed banner. The empty-bag check passed in Firefox, WebKit and mobile Chromium. A live browser check independently observed a successful “women kurta” search result page. An initial 10-worker run exhausted Node.js memory, so local execution now defaults to one worker. No live-site blocker is reported as a product pass or confirmed product defect.
 
 ## Defect analysis and limitations
 
-No Myntra production defect is confirmed. Desktop Chromium's error is a browser/network-specific execution blocker. The mobile accessibility snapshot shows a generic search banner rather than a textbox, so mobile search behavior needs further live reconnaissance. Product, category, filter, bag, accessibility, visual and account workflows remain unverified. A manual sign-in state setup is provided but has not been exercised with a personal account.
+No Myntra production defect is confirmed. Desktop Chromium's error is a browser/network-specific execution blocker. The mobile accessibility snapshot shows a generic search banner rather than a textbox, so mobile search behavior needs further live reconnaissance. Product, category, filter, sorting, bag mutation, accessibility, visual and account workflows remain unverified. The public empty-bag state is covered; a manual sign-in state setup is provided but has not been exercised with a personal account.
 
 ## Deliverables and next steps
 

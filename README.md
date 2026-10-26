@@ -11,7 +11,7 @@ Black-box browser automation for the **real public Myntra website** at [myntra.c
 
 ## Project status
 
-The latest full serial run completed 16 tests: 9 passed and 7 failed. Firefox and WebKit passed all four cases; mobile Chromium passed the homepage check but its search banner was not exposed as a textbox; desktop Chromium failed navigation with `ERR_HTTP2_PROTOCOL_ERROR`. A separate live browser check successfully searched for “women kurta” and observed the result page. See [PROJECT_STATE.md](PROJECT_STATE.md), [the execution report](docs/EXECUTION_REPORT.md), and [the roadmap](docs/PROJECT_ROADMAP.md) for details.
+The latest full serial run completed 20 tests: 12 passed and 8 failed. Firefox and WebKit passed all five cases; mobile Chromium passed the homepage and empty-bag checks but its search banner was not exposed as a textbox; desktop Chromium failed navigation with `ERR_HTTP2_PROTOCOL_ERROR`. A separate live browser check successfully searched for “women kurta” and observed the result page. See [PROJECT_STATE.md](PROJECT_STATE.md), [the execution report](docs/EXECUTION_REPORT.md), and [the roadmap](docs/PROJECT_ROADMAP.md) for details.
 
 ## Safety and source control
 

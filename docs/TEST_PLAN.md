@@ -2,12 +2,12 @@
 
 ## Scope
 
-Current automation covers public homepage response/identity plus desktop search visibility and representative non-empty/empty inputs. The desktop search control and one query-to-results flow have been observed on the live interface. Mobile search, product, category, filter, bag and account behavior have not been verified and are not yet asserted.
+Current automation covers public homepage response/identity, desktop search visibility and representative non-empty/empty inputs, plus the public empty shopping-bag state. The desktop search control, one query-to-results flow and empty-bag guidance have been observed on the live interface. Mobile search, product details, filters, sorting, bag mutation and account behavior have not been verified and are not yet asserted.
 
 ## Design and priority
 
 - **P1:** Homepage response, page identity, and search availability.
-- **P2:** Non-empty search navigation and empty-string boundary behavior.
+- **P2:** Non-empty search navigation, empty-string boundary behavior and empty-bag guidance.
 - **Equivalence partitioning:** Empty versus non-empty query.
 - **Boundary value:** Empty string; whitespace, length limits and unusual characters remain future cases.
 - **Decision rule:** Empty input remained on the current URL and non-empty input navigated to query-specific results in the executed Firefox and WebKit runs. Site content and behavior may change.

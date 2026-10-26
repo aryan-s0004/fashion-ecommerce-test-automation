@@ -9,7 +9,7 @@ The project tests the real public Myntra website at `https://www.myntra.com/` wi
 2. Configure Playwright, TypeScript, npm scripts, lockfile and smoke scaffold.
 3. Observe and test homepage behavior against the live site.
 4. Add observed search and category navigation coverage.
-5. Add observed product, filter, sorting and safe bag scenarios.
+5. Add observed product, filter, sorting and safe bag scenarios. The anonymous empty-bag state is implemented; product browsing and bag mutation remain pending live reconnaissance.
 6. Add useful negative, responsive, keyboard and accessibility checks.
 7. Trace implemented tests and document test design techniques.
 8. Record real execution results, evidence, limitations and verified defects.
