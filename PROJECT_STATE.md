@@ -31,7 +31,7 @@ Core framework hardening completed for the implemented scope. Additional product
 - Playwright Test + TypeScript + npm; configured targets include Chromium, Firefox, WebKit, and mobile Chromium.
 - Latest full run: Firefox and WebKit passed all five tests each; mobile Chromium passed homepage and empty-bag checks; desktop Chromium failed all five tests at navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search failed because the role-based textbox locator was not found.
 - Live browser reconnaissance observed the desktop search field and a successful `women kurta` result at `/women-kurta?rawQuery=women%20kurta`, with title/heading `Women Kurta`.
-- GitHub Actions runs for `7f4717d` and documentation-only `2198535` passed typecheck; live-smoke was skipped by design on push.
+- GitHub Actions runs for `7f4717d`, `2198535`, and final checkpoint `04ff34f` passed typecheck; live-smoke was skipped by design on push.
 - Never treat unavailability as a passing test or a product defect.
 
 ## Completed
@@ -106,6 +106,7 @@ Core framework hardening completed for the implemented scope. Additional product
 - `86f7aab docs: record empty bag verification checkpoint` — pushed; remote verified; latest verified CI typecheck passed.
 - `7f4717d feat: add tagged suites and report metrics` — pushed; remote verified; Actions typecheck passed and live-smoke was skipped by design.
 - `2198535 docs: install browsers for full regression` — pushed; remote verified; Actions typecheck passed and live-smoke was skipped by design.
+- `04ff34f docs: record final documentation CI result` — pushed; remote verified; Actions typecheck passed and live-smoke was skipped by design.
 
 ## Exact next action
 Continue live reconnaissance of category, product and public bag flows when the browser/network is stable; add assertions only for behavior verified in that session. Authenticated scenarios remain blocked on a user's manual sign-in.
