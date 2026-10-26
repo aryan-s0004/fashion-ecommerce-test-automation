@@ -16,7 +16,7 @@ Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The 
 - Playwright Test + TypeScript + npm; configured targets include Chromium, Firefox, WebKit, and mobile Chromium.
 - Latest full run: Firefox and WebKit passed all five tests each; mobile Chromium passed homepage and empty-bag checks; desktop Chromium failed all five tests at navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search failed because the role-based textbox locator was not found.
 - Live browser reconnaissance observed the desktop search field and a successful `women kurta` result at `/women-kurta?rawQuery=women%20kurta`, with title/heading `Women Kurta`.
-- GitHub Actions run for commit `26e6418` passed the typecheck job; the live-smoke job was skipped because the run was triggered by push.
+- GitHub Actions run for commit `3929e89` passed the typecheck job; the live-smoke job was skipped because the run was triggered by push. No run for the later `b6e14cd` push was visible at the latest Actions lookup.
 - Never treat unavailability as a passing test or a product defect.
 
 ## Completed
@@ -79,6 +79,8 @@ Milestones 0–3 complete; milestones 4–5 and 7–10 implemented in part. The 
 - `e3ef9e8 docs: add execution report and project presentation` — pushed; local `origin/main` points to this commit. A subsequent `git ls-remote` final verification failed due intermittent DNS resolution (`Could not resolve host: github.com`).
 - `7884cc0 docs: finalize project verification checkpoint` — pushed; later independent remote lookup failed due intermittent DNS resolution.
 - `26e6418 docs: record cross-browser smoke results` — pushed; remote `main` confirmed at this commit during the current audit.
+- `3929e89 feat: add manual authentication setup` — pushed; remote verified.
+- `b6e14cd test: cover the public empty shopping bag state` — pushed; remote verified.
 
 ## Exact next action
 Continue live reconnaissance of category, product and public bag flows when the browser/network is stable; add assertions only for behavior verified in that session. Authenticated scenarios remain blocked on a user's manual sign-in.
