@@ -12,6 +12,7 @@
     "test:chromium": "playwright test --project=chromium-desktop",
     "test:firefox": "playwright test --project=firefox-desktop",
     "test:webkit": "playwright test --project=webkit-desktop",
+    "auth:setup": "node scripts/setup-auth.mjs",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

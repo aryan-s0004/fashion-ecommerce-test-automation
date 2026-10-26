@@ -7,11 +7,11 @@ Black-box browser automation for the **real public Myntra website** at [myntra.c
 - Node.js and npm
 - Playwright Test
 - TypeScript
-- GitHub Actions (planned)
+- GitHub Actions
 
 ## Project status
 
-The initial environment audit found that Myntra was unreachable on TCP port 443. The repository is being built incrementally; see [PROJECT_STATE.md](PROJECT_STATE.md) and [the roadmap](docs/PROJECT_ROADMAP.md) for verified status and next steps.
+The latest full serial run completed 16 tests: 9 passed and 7 failed. Firefox and WebKit passed all four cases; mobile Chromium passed the homepage check but its search banner was not exposed as a textbox; desktop Chromium failed navigation with `ERR_HTTP2_PROTOCOL_ERROR`. A separate live browser check successfully searched for “women kurta” and observed the result page. See [PROJECT_STATE.md](PROJECT_STATE.md), [the execution report](docs/EXECUTION_REPORT.md), and [the roadmap](docs/PROJECT_ROADMAP.md) for details.
 
 ## Safety and source control
 
@@ -33,7 +33,13 @@ npm run test:webkit
 npm run report
 ```
 
-The tests target the real live site. The initial Chromium smoke attempt was blocked before an HTTP response by `net::ERR_HTTP2_PROTOCOL_ERROR`; see [the execution report](docs/EXECUTION_REPORT.md). Do not interpret blocked navigation as a pass.
+The tests target the real live site. Local runs use one Playwright worker by default to avoid resource exhaustion; CI uses two. Do not interpret blocked navigation as a pass.
+
+## Optional manual sign-in
+
+Run `npm run auth:setup` to open a visible Chromium browser. Sign in manually in that browser, including any OTP or challenge presented by Myntra, then press Enter in the terminal. The script stores Playwright storage state at `playwright/.auth/myntra.json`; this directory is ignored by Git. Never enter credentials in the terminal or commit, share, or upload the state file. The state may contain active session cookies; delete it when no longer needed and repeat setup if it expires.
+
+No authenticated account scenarios have been executed or claimed. Public tests remain independent of this optional state.
 
 ## Reports and evidence
 

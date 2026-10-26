@@ -2,16 +2,15 @@
 
 ## Actual browser checks
 
-- Date: 2026-10-24 (client local date).
+- Date: 2026-10-27 (client local date).
 - Target: `https://www.myntra.com/`.
-- Commands: initial `npm run test:chromium`; homepage-only runs with Firefox/WebKit and desktop/mobile Chromium projects.
-- Playwright 1.56.1; Node.js v22.23.1; Windows; Chromium 141.0.7390.37 (build 1194).
-- Homepage smoke checks executed: 5 total across separate runs, 3 passed, 2 failed, 0 skipped, 0 flaky.
-- Firefox desktop: passed; direct read-only navigation returned HTTP 200 and the Myntra-branded page title.
-- WebKit desktop: passed; direct read-only navigation returned HTTP 200 and the same title.
-- Chromium mobile: passed response, title and non-empty body assertions.
-- Chromium desktop: failed twice at navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`, before receiving an HTTP response or checking page assertions.
-- Search cases are implemented but not executed.
-- Latest Playwright report (`reports/html/index.html`, `reports/results.json`) covers the desktop/mobile Chromium run: 1 passed, 1 failed. The separate Firefox/WebKit report was overwritten by the later run; its terminal output showed 2 passes. Failure screenshot, video and trace are under `test-results/`.
+- Playwright 1.56.1; Node.js v22.23.1; Windows.
+- `npm run typecheck` passed.
+- Focused search run (`npx playwright test tests/search/search.spec.ts --workers=1`): 6 passed, 6 failed. Firefox and WebKit passed all three search cases. Desktop Chromium failed all three at homepage navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`; mobile Chromium loaded the page but the role-based textbox locator did not match the observed mobile search bar.
+- Latest full serial run (`npx playwright test --workers=1`): 9 passed, 7 failed across 16 cases. Firefox and WebKit passed all four cases each. Mobile Chromium passed the homepage check but failed all three search cases because the search bar was exposed as a generic clickable banner rather than a textbox. Desktop Chromium failed all four checks at homepage navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`.
+- Live browser reconnaissance observed the desktop textbox named “Search for products, brands and more”. Submitting “women kurta” navigated to `/women-kurta?rawQuery=women%20kurta` and displayed the “Women Kurta” page title and heading. Search assertions remain live-site checks, not stable guarantees.
+- The mobile screenshot shows a visually rendered search banner, but the banner is not exposed as a textbox. No search interaction was claimed as validated on mobile.
+- A first default-parallel run selected 10 workers and ended with a Node.js out-of-memory crash. Local Playwright execution now defaults to one worker; CI remains configured for two.
+- The latest full-run HTML and JSON reports are under `reports/`; failure screenshots, videos and traces are under `test-results/` (ignored by Git).
 
-The desktop Chromium issue is browser/network-specific and is not evidence of a Myntra production defect.
+These are live-site/browser/network blockers and a mobile locator mismatch, not confirmed Myntra production defects. Search visibility and query navigation passed in Firefox and WebKit during both focused and full runs; the integrated browser also confirmed one desktop search flow. Repeat when the site and network are stable.

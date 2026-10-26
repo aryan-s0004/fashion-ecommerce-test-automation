@@ -6,7 +6,7 @@ This project establishes a TypeScript/Playwright framework for black-box testing
 
 ## Scope and method
 
-Implemented tests cover homepage response/identity and search visibility, non-empty query navigation, and empty-input handling. Search expectations remain provisional because live reconnaissance was blocked. Tests use Playwright Test with Chromium desktop, Firefox desktop, WebKit desktop and mobile Chromium projects configured.
+Implemented tests cover homepage response/identity and search visibility, non-empty query navigation, and empty-input handling. Search expectations remain provisional because the public site behaved inconsistently during cross-browser runs. Tests use Playwright Test with Chromium desktop, Firefox desktop, WebKit desktop and mobile Chromium projects configured.
 
 ## Architecture and test design
 
@@ -14,12 +14,12 @@ The project uses npm, TypeScript, Playwright Test, per-test browser contexts and
 
 ## Actual execution
 
-On 2026-10-24, `npm run typecheck` passed and test discovery found 4 cases across four projects. Across separate homepage-only runs there were 3 passes and 2 desktop Chromium failures with `net::ERR_HTTP2_PROTOCOL_ERROR` before an HTTP response. Search cases were not executed. The latest JSON report is for the desktop/mobile Chromium run and records 1 pass and 1 failure; Firefox/WebKit terminal output from the preceding run recorded 2 passes. A screenshot, video and trace were generated for the desktop Chromium failure.
+On 2026-10-27, `npm run typecheck` passed. The latest full serial run completed 16 tests with 9 passes and 7 failures: all Firefox and WebKit cases passed, the mobile homepage passed, and four desktop Chromium plus three mobile search cases failed. Desktop Chromium failed before navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search could not locate a textbox in the observed banner. A live browser check independently observed a successful “women kurta” search result page. An initial 10-worker run exhausted Node.js memory, so local execution now defaults to one worker. No live-site blocker is reported as a product pass or confirmed product defect.
 
 ## Defect analysis and limitations
 
-No Myntra production defect is confirmed. Desktop Chromium's error is classified as a browser/network-specific execution blocker; Firefox and WebKit observed the branded homepage. Search assertions remain provisional. Product, category, filter, bag, responsive, accessibility, visual and account workflows remain unverified.
+No Myntra production defect is confirmed. Desktop Chromium's error is a browser/network-specific execution blocker. The mobile accessibility snapshot shows a generic search banner rather than a textbox, so mobile search behavior needs further live reconnaissance. Product, category, filter, bag, accessibility, visual and account workflows remain unverified. A manual sign-in state setup is provided but has not been exercised with a personal account.
 
 ## Deliverables and next steps
 
-The repository includes the Playwright setup, smoke/search tests, traceability and execution documents, GitHub Actions workflow, README, demonstration script and presentation outline. Next, rerun the smoke test when Myntra is reachable, inspect the live interface, validate search assumptions, and expand only to workflows observed to be publicly accessible.
+The repository includes the Playwright setup, smoke/search tests, traceability and execution documents, GitHub Actions workflow, README, demonstration script and presentation outline. Next, rerun the cross-browser suite when Myntra and DNS are stable, inspect the mobile search interaction, and expand only to workflows observed to be publicly accessible.

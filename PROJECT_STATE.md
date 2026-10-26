@@ -1,7 +1,7 @@
 # Project State
 
 ## Current phase
-Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. Final verification complete with live-site blocker.
+Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. The latest full verification completed with live-browser/network and mobile search locator limitations documented.
 
 ## Repository baseline
 - Local repository: `fashion-ecommerce-test-automation`.
@@ -13,8 +13,10 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. Final ve
 
 ## Target and architecture
 - Actual target: `https://www.myntra.com/`.
-- Playwright Test + TypeScript + npm; configured targets planned for Chromium, Firefox, WebKit, and mobile Chromium where binaries allow.
-- Myntra is reachable in Firefox, WebKit and mobile Chromium; desktop Chromium fails with `ERR_HTTP2_PROTOCOL_ERROR`. GitHub remote is synchronized through the latest push.
+- Playwright Test + TypeScript + npm; configured targets include Chromium, Firefox, WebKit, and mobile Chromium.
+- Latest full run: Firefox and WebKit passed all four tests each; mobile Chromium passed homepage only; desktop Chromium failed all four tests at navigation with `ERR_HTTP2_PROTOCOL_ERROR`; mobile search failed because the role-based textbox locator was not found.
+- Live browser reconnaissance observed the desktop search field and a successful `women kurta` result at `/women-kurta?rawQuery=women%20kurta`, with title/heading `Women Kurta`.
+- GitHub Actions run for commit `26e6418` passed the typecheck job; the live-smoke job was skipped because the run was triggered by push.
 - Never treat unavailability as a passing test or a product defect.
 
 ## Completed
@@ -22,10 +24,13 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. Final ve
 - Milestone 1 repository foundation.
 - Milestone 2 Playwright + TypeScript setup, pinned lockfile, scripts and Chromium smoke scaffold.
 - Milestone 3 live-site smoke executed once; navigation failed before response; report and diagnostic artifacts generated.
-- Search cases implemented provisionally; traceability/test design/defect/execution/limitations documents created.
+- Search cases implemented; desktop search and one query-result flow observed live; traceability/test design/defect/execution/limitations documents created.
 - GitHub Actions workflow separates push/PR typecheck from manual live-site smoke.
 - Viva, demo and presentation outline created.
 - Executed homepage smoke in all four projects: Firefox, WebKit and mobile Chromium passed; desktop Chromium failed twice before assertions.
+- Focused search run, serial: Firefox and WebKit passed all three cases; desktop Chromium failed at navigation and mobile search failed the provisional textbox locator.
+- Latest full serial suite: 9 passed, 7 failed out of 16; Firefox and WebKit passed all four each, mobile homepage passed, desktop Chromium failed all four at navigation, and mobile search failed on the role-based textbox locator.
+- Initial default-parallel search run selected 10 workers and ended in Node.js out-of-memory; local Playwright config now defaults to one worker (CI remains two).
 
 ## Commands and validation
 - `node --version`: v22.23.1.
@@ -38,28 +43,32 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. Final ve
 - Final `npx playwright test --list`: discovered 16 entries.
 - `npx playwright install chromium`: installed compatible Chromium build 1194.
 - `npm run test:chromium`: 1 executed, 0 passed, 1 failed; `ERR_HTTP2_PROTOCOL_ERROR` on navigation.
+- `npx playwright test tests/search/search.spec.ts --workers=1`: 6 passed, 6 failed; Firefox/WebKit search passed, Chromium desktop/mobile did not.
+- Latest `npx playwright test --workers=1`: 9 passed, 7 failed; 16 tests completed.
+- `npm run typecheck`: passed after the local worker default change.
 - Browser-specific homepage runs: Firefox and WebKit passed; mobile Chromium passed; desktop Chromium failed twice with the same protocol error.
 - Generated `reports/html/index.html`, `reports/results.json`, and failed-run screenshot, video, trace under `test-results/` (ignored by Git).
 - Git commits pushed: `64e327d` baseline, `d774629` repository foundation, `b453350` Playwright framework.
 
 ## Blockers
-- Myntra homepage was observed successfully in Firefox and WebKit, but desktop Chromium remains blocked. Search interaction is not validated.
-- Search locator and behavior assertions are provisional until live reconnaissance.
-- Firefox, WebKit, mobile, CI Actions run, and search execution remain unverified.
+- Desktop Chromium remains blocked by HTTP/2 errors; previous WebKit runs had intermittent timeout/DNS failures, while the latest full run passed all WebKit checks.
+- Search visibility and query navigation passed in Firefox and WebKit. The mobile search UI is a generic banner and its interaction remains unverified.
+- CI typecheck is verified; no CI live smoke has been run. Product/category/filter/bag behavior remains unverified.
+- Manual sign-in setup was added; no personal authenticated state or private account behavior has been exercised.
 
 ## Milestones
 0. Environment and repository audit — committed and pushed.
 1. Repository foundation — committed and pushed.
 2. Playwright and TypeScript setup — committed and pushed.
-3. Real website smoke tests — executed in all projects; Firefox, WebKit and mobile Chromium passed; desktop Chromium failed.
-4. Search and navigation — search-only provisional cases implemented; live validation blocked.
+3. Real website smoke tests — executed in all projects; latest serial run passed Firefox, WebKit and mobile homepage checks; desktop Chromium failed.
+4. Search and navigation — search cases implemented; desktop search observed and Firefox/WebKit passed; mobile interaction remains unverified.
 5. Products, filters, sorting, shopping bag — not implemented; no live interface observations.
 6. Negative and non-functional tests — empty-search boundary implemented provisionally; remaining areas not implemented.
 7. Test design and traceability — implemented for current cases.
 8. Diagnostics and reports — actual failed run documented; generated reports ignored by Git.
-9. CI — workflow implemented; no remote Actions run verified.
+9. CI — workflow implemented; latest push Actions run passed typecheck; live-smoke was skipped as configured.
 10. Final report and viva preparation — draft deliverables implemented.
-11. Final verification — in progress.
+11. Final verification — completed for implemented scope; cross-browser results, remote state, CI typecheck and limitations recorded. Remaining workflows are not implemented.
 
 ## Recent commits / remote synchronization
 - `64e327d chore: establish project baseline` — pushed.
@@ -68,6 +77,7 @@ Milestones 0–3 complete; milestones 4 and 7–10 implemented in part. Final ve
 - `f197e89 test: cover provisional search behavior` — pushed.
 - `e3ef9e8 docs: add execution report and project presentation` — pushed; local `origin/main` points to this commit. A subsequent `git ls-remote` final verification failed due intermittent DNS resolution (`Could not resolve host: github.com`).
 - `7884cc0 docs: finalize project verification checkpoint` — pushed; later independent remote lookup failed due intermittent DNS resolution.
+- `26e6418 docs: record cross-browser smoke results` — pushed; remote `main` confirmed at this commit during the current audit.
 
 ## Exact next action
-Investigate why desktop Chromium receives `ERR_HTTP2_PROTOCOL_ERROR` while other browsers succeed, then inspect and validate search behavior with live page evidence. Retry `git ls-remote --heads origin main` when DNS is available.
+Continue live reconnaissance of category, product and public bag flows when the browser/network is stable; add assertions only for behavior verified in that session. Authenticated scenarios remain blocked on a user's manual sign-in.
