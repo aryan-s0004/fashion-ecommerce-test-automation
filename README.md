@@ -21,7 +21,7 @@ Tests use low-volume public workflows only. They must not bypass CAPTCHA or acce
 
 ```powershell
 npm ci
-npx playwright install chromium
+npx playwright install
 npm run typecheck
 npm run test:smoke
 npm run test:search
