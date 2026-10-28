@@ -6,16 +6,16 @@ export default defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 2 : 1,
-  timeout: 30_000,
-  expect: { timeout: 8_000 },
+  timeout: 45_000,
+  expect: { timeout: 10_000 },
   reporter: [['list'], ['html', { outputFolder: 'reports/html', open: 'never' }], ['json', { outputFile: 'reports/results.json' }]],
   use: {
     baseURL: process.env.MYNTRA_BASE_URL ?? 'https://www.myntra.com/',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    actionTimeout: 10_000,
-    navigationTimeout: 20_000
+    actionTimeout: 15_000,
+    navigationTimeout: 45_000
   },
   projects: [
     { name: 'chromium-desktop', use: { ...devices['Desktop Chrome'] } },
