@@ -1,20 +1,16 @@
-# Test Design Techniques
+# Test Design Techniques Evidenced in Current Source
 
-## Equivalence partitioning
+**Source of truth:** Executable cases under `tests/`; see [TEST_CASES.md](TEST_CASES.md) and [FINAL_TEST_COVERAGE_REPORT.md](FINAL_TEST_COVERAGE_REPORT.md).
 
-Search inputs are initially partitioned into empty and non-empty strings (`MYN-SEARCH-002/003`). Those cases passed in the latest Firefox and WebKit runs. More partitions (whitespace, punctuation, very long text, and no-result term) require live observation and should be added only when the site behavior can be verified.
-
-## Boundary-value analysis
-
-The empty string is the current lower boundary case. Maximum supported query length and adjacent values are unknown and deliberately not guessed.
-
-## Decision table
-
-| Query entered | Expected observable behavior | Test |
+| Technique | Current example | Evidence and limitation |
 |---|---|---|
-| Empty | Stay on current page | MYN-SEARCH-003 (passed in Firefox/WebKit) |
-| Non-empty | Navigate to query-specific result URL | MYN-SEARCH-002 (passed in Firefox/WebKit) |
+| Equivalence partitioning | Non-empty versus empty search | `tests/search/search.spec.ts`; representative cases only |
+| Boundary-value analysis | Empty, whitespace, Unicode, punctuation, and 80-character query | Long-query test timed out during setup in the latest Firefox run |
+| Negative/precondition testing | Add to bag without selecting a size | `tests/product/product.spec.ts` |
+| State-transition testing | Empty bag, add test item, verify, remove, restore empty state | Shared category journey helper; safety checks are present |
+| Use-case testing | Four category-to-product-to-bag journeys | Winter wear, formal shoes, sports shoes, sneakers |
+| Risk-based testing | Refuse unsafe bag mutation and stop before order placement | Shopping journey helpers |
+| Responsive testing | Measure horizontal overflow at fixed viewport sizes | Three widths failed in the latest Firefox run; one viewport passed |
+| Accessibility checks | Page title/landmarks, sampled image alt, search name | Limited checks only; image-alt assertion failed; not a WCAG audit |
 
-## Risk-based testing
-
-Homepage and search are prioritized as core public entry workflows. Shopping, account, and checkout flows require observed public behavior and safe conditions; no purchase or account changes are in scope.
+Sorting, filter reset, pairwise combinations, full keyboard accessibility, XSS testing, and complete WCAG conformance are not current executable coverage. Candidate ideas are not execution evidence.

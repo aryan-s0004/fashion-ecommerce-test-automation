@@ -1,19 +1,44 @@
 # Execution Report
 
-## Actual browser checks
+**Target:** `https://www.myntra.com/`
+**Execution date:** 2026-11-01 (timestamps below are UTC)
+**Tooling:** Playwright Test 1.56.1, TypeScript 5.9.3
 
-- Date: 2026-10-27 (client local date).
-- Target: `https://www.myntra.com/`.
-- Playwright 1.56.1; Node.js v22.23.1; Windows.
-- `npm run typecheck` passed.
-- Focused search run (`npx playwright test tests/search/search.spec.ts --workers=1`): 6 passed, 6 failed. Firefox and WebKit passed all three search cases. Desktop Chromium failed all three at homepage navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`; mobile Chromium loaded the page but the role-based textbox locator did not match the observed mobile search bar.
-- Latest full serial run (`npx playwright test --workers=1`): 12 passed, 8 failed across 20 cases. Firefox and WebKit passed all five cases each. Mobile Chromium passed homepage and empty-bag checks but failed all three search cases because the search bar was exposed as a generic clickable banner rather than a textbox. Desktop Chromium failed all five checks at navigation with `net::ERR_HTTP2_PROTOCOL_ERROR`.
-- Final hardening regression (`npm run test:regression`): 20 total, 12 passed, 8 failed, 0 skipped, 0 flaky, 0 retries, 130.00 seconds. `npm run report:summary` derives the browser breakdown below from `reports/results.json`.
-- Project summary: Chromium desktop 0/5 passed; Firefox desktop 5/5; WebKit desktop 5/5; Chromium mobile 2/5.
-- The read-only empty-bag check passed in Firefox, WebKit and mobile Chromium. Desktop Chromium could not reach `/checkout/cart` because of the same HTTP/2 error.
-- Live browser reconnaissance observed the desktop textbox named “Search for products, brands and more”. Submitting “women kurta” navigated to `/women-kurta?rawQuery=women%20kurta` and displayed the “Women Kurta” page title and heading. Search assertions remain live-site checks, not stable guarantees.
-- The mobile screenshot shows a visually rendered search banner, but the banner is not exposed as a textbox. No search interaction was claimed as validated on mobile.
-- A first default-parallel run selected 10 workers and ended with a Node.js out-of-memory crash. Local Playwright execution now defaults to one worker; CI remains configured for two.
-- The latest full-run HTML and JSON reports are under `reports/`; failure screenshots, videos and traces are under `test-results/` (ignored by Git).
+## Latest full Firefox run
 
-These are live-site/browser/network blockers and a mobile locator mismatch, not confirmed Myntra production defects. Search visibility and query navigation passed in Firefox and WebKit during both focused and full runs; the integrated browser also confirmed one desktop search flow. The empty-bag guidance was validated in three projects. Repeat when the site and network are stable.
+- Command: `npx playwright test --project=firefox-desktop --workers=1`
+- Started: `2026-11-01T13:36:17.720Z`
+- Duration: 349.86 seconds
+- Discovered: 27; executed: 26
+- Passed: 20; failed: 6; skipped: 1
+- Flaky/retries: 0/0
+- Skipped: Authenticated shopping flow; local authentication state was not available.
+- Failures: sampled image-alt assertion; category-menu locator; overflow checks at 360×640, 390×844, and 768×1024; `SEARCH-010` page setup timed out before its query assertion.
+
+## Latest all-project smoke run
+
+- Command: `npm run test:smoke`
+- Started: `2026-11-01T13:33:30.458Z`
+- Duration: 92.91 seconds
+- Executions: 8; passed: 5; failed: 3; skipped/flaky/retries: 0/0/0.
+- Firefox desktop: 2 passed; WebKit desktop: 2 passed.
+- Chromium desktop: 2 navigation failures with `net::ERR_HTTP2_PROTOCOL_ERROR`.
+- Chromium mobile: 1 passed and 1 failed because the desktop search-input locator was not visible.
+
+These are separate runs and their counts must not be added together. The full run was only Firefox; the smoke run covered all four configured projects.
+
+## Verification and CI
+
+- `npm run typecheck`: passed.
+- `npx playwright test --list`: passed; 27 unique definitions in 12 spec files, or 108 project-specific listings.
+- `npm run preflight`: 11 passed, 0 failed.
+- `npm run verify:demo`: 6 passed, 0 failed. This checks prerequisites, not live browser behavior.
+- Latest visible GitHub Actions run (2026-10-28, commit `abbd54a`): typecheck passed; live-smoke was skipped because the event was a push.
+
+## Classification
+
+The HTTP/2 error is a navigation/network blocker, not a confirmed application defect. The mobile issue is a locator/UI-shape mismatch pending investigation. The image-alt and overflow failures are potential product observations requiring repeatability and manual inspection. The long-query case timed out during page setup, before validating query behavior. No Myntra production defect is confirmed.
+
+The latest generated JSON/HTML report and failure screenshots/traces are local, generated artifacts. Regenerate them before another presentation; do not assume historical files remain.
+
+For interpretation and current counts, see [FINAL_TEST_COVERAGE_REPORT.md](FINAL_TEST_COVERAGE_REPORT.md) and [FINAL_DEFECT_AND_LIMITATIONS_REGISTER.md](FINAL_DEFECT_AND_LIMITATIONS_REGISTER.md).

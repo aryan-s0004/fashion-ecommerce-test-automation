@@ -1,24 +1,80 @@
-# Test Plan
+# Comprehensive Test Plan
 
-## Scope
+**Application Under Test:** Myntra Fashion Storefront (`https://www.myntra.com/`)
+**Test Framework:** Playwright Test 1.56.1 + TypeScript 5.9.3 + Node.js 22
+**Status:** Planning document; listed scope and techniques are not proof of implementation or execution.
 
-Current automation covers public homepage response/identity, desktop search visibility and representative non-empty/empty inputs, plus the public empty shopping-bag state. The desktop search control, one query-to-results flow and empty-bag guidance have been observed on the live interface. Mobile search, product details, filters, sorting, bag mutation and account behavior have not been verified and are not yet asserted.
+The project currently has 27 unique test definitions. The latest full run and separate smoke outcomes are recorded in [FINAL_TEST_COVERAGE_REPORT.md](FINAL_TEST_COVERAGE_REPORT.md). Candidate features in this plan—including sorting, suggestions, zero-results behavior, broad accessibility, and pairwise filter coverage—must not be described as implemented unless verified in current source.
 
-## Design and priority
+---
 
-- **P1:** Homepage response, page identity, and search availability.
-- **P2:** Non-empty search navigation, empty-string boundary behavior and empty-bag guidance.
-- **Equivalence partitioning:** Empty versus non-empty query.
-- **Boundary value:** Empty string; whitespace, length limits and unusual characters remain future cases.
-- **Decision rule:** Empty input remained on the current URL and non-empty input navigated to query-specific results in the executed Firefox and WebKit runs. Site content and behavior may change.
-- **Risk-based:** Start with public entry and search; do not attempt account mutation or order/payment flows.
+## 1. Introduction & Objectives
 
-## Execution policy
+The primary objective of this testing campaign is to conduct black-box functional, negative, boundary, cross-browser, responsive, and accessibility validation against the live, public Myntra ecommerce web application.
 
-Each test is independent. A navigation/network/bot restriction is recorded as blocked environment execution, not as a passing test or confirmed Myntra defect. Failure screenshots, video, traces, HTML and JSON reports are retained locally and excluded from Git.
+The framework is architected to be defensible, reliable, non-destructive, and resilient against real-world third-party CDN behaviors, ensuring strict separation between genuine application defects and external environment blockers.
 
-## Test selection and reporting
+---
 
-Playwright tags select the current implemented scope: `@smoke`, `@search`, `@bag`, `@accessibility`, `@responsive`, and `@regression`. The mobile responsive subset currently contains the empty-bag visibility test; the accessibility subset checks the semantic search textbox/name only, not WCAG conformance. Product commands are intentionally absent until public product workflows are inspected and automated.
+## 2. Scope of Testing
 
-Run `npm run report:summary` after a test run to derive total outcomes, retry count, duration and browser-project breakdown from the JSON report; its numbers describe the last report only.
+### In-Scope:
+1. **Homepage & Navigation:** Response status codes, page titles, header sticky navigation, footer landmarks, flyout menus, breadcrumb history traversal (back/forward).
+2. **Search Engine & Boundary Analysis:** Empty queries, valid queries, whitespace padding, unicode characters, punctuation, length limits, auto-suggestions, and zero-result empty states.
+3. **Category Listings (Data-Driven Journeys):** Four core datasets:
+   - Men's Winter Wear (`men-winter-wear`)
+   - Men's Formal Shoes (`formal-shoes`)
+   - Men's Sports Shoes (`sports-shoes`)
+   - Men's Sneakers (`sneakers`)
+4. **Product Detail Page (PDP):** Image gallery rendering, title and brand consistency, currency formatting (₹), available vs out-of-stock size selection, mandatory size validation.
+5. **Filters & Sorting:** Brand checkbox filters, filter chips, URL query parameter synchronization, and monotonic price ordering ("Price: Low to High").
+6. **Shopping Bag & Cart Lifecycle:** Idempotent cart state verification, item count integrity, product ID matching, and guaranteed two-step modal removal in `finally` blocks.
+7. **Responsive & Viewport Emulation:** Desktop (1280×720), Tablet (768×1024), and Mobile (390×844) layout checks with strict zero-horizontal-overflow assertions.
+8. **Accessibility (A11y):** ARIA roles, accessible names, landmark regions (`banner`, `main`), heading hierarchy, and keyboard Tab navigation.
+9. **CI/CD & Observability:** Two-tier GitHub Actions validation, preflight health checks, HTML/JSON reporting, traces, failure screenshots, and videos.
+
+### Out-of-Scope (Strict Safety Boundaries):
+- Order placement, checkout completion, and payment processing (strictly simulated/prohibited to protect real finances).
+- Account creation, password modification, or destructive profile mutations.
+- Circumvention of CAPTCHA, WAF, or anti-bot security mechanisms.
+- Heavy load or stress testing against live Myntra infrastructure.
+
+---
+
+## 3. Test Design Techniques Applied
+
+1. **Equivalence Partitioning (EP):** Partitioning search inputs into valid keywords, empty inputs, and non-existent inventory terms.
+2. **Boundary Value Analysis (BVA):** Min length (empty `""`), 1-char, leading/trailing whitespace, multi-spaces, 120+ char long strings, and monotonic numerical price checks.
+3. **Decision Table Testing (DT):** Rules governing Add-to-Bag operations (Size selected + In stock = Enabled; Size unselected = Prompted; Out of stock = Disabled).
+4. **State Transition Testing (ST):** Empty Bag -> Add Item (Count = 1) -> Verify Bag -> Remove Item -> Empty Bag Restored.
+5. **Use Case Testing (UC):** Complete end-to-end user journeys from Homepage -> Search -> Category -> PDP -> Size Select -> Bag -> Teardown.
+6. **Error Guessing (EG):** Testing special characters, injection patterns (`<script>`), expired sessions, and disconnected network handling.
+7. **Pairwise Testing:** Combinatorial evaluation of brand filters with price brackets.
+8. **Risk-Based Testing:** Enforcing strict cart precondition checks before any test mutation.
+
+---
+
+## 4. Test Environment & Browser Configuration
+
+```typescript
+// playwright.config.ts matrix
+projects: [
+  { name: 'chromium-desktop', use: { ...devices['Desktop Chrome'] } },
+  { name: 'firefox-desktop',  use: { ...devices['Desktop Firefox'] } },
+  { name: 'webkit-desktop',   use: { ...devices['Desktop Safari'] } },
+  { name: 'chromium-mobile',  use: { ...devices['iPhone 13'] } }
+]
+```
+- **Base URL:** `https://www.myntra.com/` (configurable via `MYNTRA_BASE_URL`).
+- **Timeouts:** Navigation: 45,000ms | Action: 15,000ms | Assertions: 10,000ms.
+- **Concurrency:** Local: `workers: 1` (serial execution to avoid Node.js OOM and Akamai rate limiting). CI: `workers: 2`.
+
+---
+
+## 5. Execution & Reporting Policy
+
+- **Web-First Assertions:** Zero arbitrary `page.waitForTimeout()` calls. All waits are event-driven or driven by auto-retrying assertions.
+- **Test Isolation:** Each test runs in an independent `BrowserContext`.
+- **Reporting:** Automatic generation of HTML (`reports/html/index.html`) and JSON (`reports/results.json`).
+- **Failure Artifacts:** Screenshots (`only-on-failure`), Traces (`retain-on-failure`), and Videos (`retain-on-failure`).
+- **Summary Command:** `npm run report:summary` provides instant terminal breakdowns by module, browser, status, and failure reason.

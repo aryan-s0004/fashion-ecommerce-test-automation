@@ -1,9 +1,13 @@
 # Limitations
 
-- In the latest full run (20 test executions), desktop Chromium navigation to Myntra failed with `net::ERR_HTTP2_PROTOCOL_ERROR` for all five cases. Firefox and WebKit passed all five; mobile Chromium passed homepage and empty-bag checks.
-- In the latest full run, the three mobile search checks could not locate an accessible textbox. The captured mobile snapshot exposed a clickable `SEARCH_BAR` generic instead; the mobile search interaction remains unverified.
-- Desktop search was observed in the integrated browser: submitting “women kurta” reached `/women-kurta?rawQuery=women%20kurta`. This does not eliminate live-site or browser variability.
-- No category browsing, product details, filters, sorting, shopping-bag mutation, responsive-specific assertions, accessibility audit, visual snapshots, or account scenarios have been verified.
-- No production defect is claimed. Do not bypass network/site restrictions or bot protections.
-- Manual sign-in setup saves browser storage state locally, but it has not been exercised with a personal account. No authenticated test results are claimed.
-- The optional manual sign-in helper captures storage state, but there is no authenticated-test fixture, expiry detection, or test consumer. Do not treat captured state as a verified authentication workflow.
+The current authoritative status is in [FINAL_DEFECT_AND_LIMITATIONS_REGISTER.md](FINAL_DEFECT_AND_LIMITATIONS_REGISTER.md). The older run notes below are superseded by the 2026-11-01 execution report.
+
+- The latest full suite was Firefox-only: 20 passed, 6 failed, 1 skipped out of 27 discovered.
+- A separate four-project smoke run had 5 passes and 3 failures; desktop Chromium navigation reported `ERR_HTTP2_PROTOCOL_ERROR`, and mobile search did not match the desktop search-input locator.
+- The image-alt and three responsive overflow assertions failed in the Firefox run; these observations need confirmation and do not yet establish Myntra production defects.
+- The long-query test timed out while setting up a page, before testing the query itself.
+- Four category-to-bag journeys and two product tests passed in Firefox. Sorting and filter reset are not implemented as current tests.
+- One authenticated flow was skipped because no local storage state was available. Manual sign-in, OTP, and CAPTCHA behavior is not executed test coverage.
+- Accessibility checks are limited and do not establish WCAG conformance. No load, payment, backend, or visual-baseline testing is claimed.
+- Reports and traces are generated locally and may be overwritten. Use their timestamp when presenting them.
+- Do not bypass network/site protections, automate OTP/CAPTCHA, or place orders/payments.
