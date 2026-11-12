@@ -1,0 +1,33 @@
+{
+    "name": "myntra-clone-site",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite --configLoader native --host 127.0.0.1",
+        "build": "vite --configLoader native build",
+        "typecheck": "tsc --noEmit",
+        "test": "playwright test",
+        "test:headed": "playwright test --project=chrome --headed",
+        "test:chrome": "playwright test --project=chrome --headed",
+        "test:edge": "playwright test --project=edge --headed",
+        "test:regression": "playwright test tests/regression.spec.ts",
+        "test:smoke": "playwright test tests/homepage.spec.ts tests/navigation.spec.ts",
+        "report": "playwright show-report",
+        "demo": "node scripts/demo.js"
+    },
+    "dependencies": {
+        "lucide-react": "^0.468.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "vite": "^6.1.0"
+    },
+    "devDependencies": {
+        "@playwright/test": "^1.52.0",
+        "@types/node": "^26.6.6",
+        "typescript": "^5.7.3"
+    },
+    "allowScripts": {
+        "esbuild@0.25.12": true
+    }
+}

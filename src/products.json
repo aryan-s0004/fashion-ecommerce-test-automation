@@ -1,0 +1,1093 @@
+﻿[
+    {
+        "id":  1,
+        "name":  "Relaxed Cotton Overshirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1499,
+        "mrp":  2499,
+        "color":  "Sage",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "badge":  "Bestseller",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shirts piece in sage, made for comfortable everyday wear."
+    },
+    {
+        "id":  2,
+        "name":  "Everyday Oxford Shirt",
+        "brand":  "NORTH \u0026 CO.",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1199,
+        "mrp":  1999,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1603252109303-2751441dd157",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shirts piece in blue, made for comfortable everyday wear."
+    },
+    {
+        "id":  3,
+        "name":  "Classic Straight Jeans",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Jeans",
+        "price":  1899,
+        "mrp":  2999,
+        "color":  "Indigo",
+        "sizes":  [
+                      "30",
+                      "32",
+                      "34",
+                      "36"
+                  ],
+        "image":  "photo-1542272604-787c3835535d",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed jeans piece in indigo, made for comfortable everyday wear."
+    },
+    {
+        "id":  4,
+        "name":  "Weekend Knit Polo",
+        "brand":  "MONDAY CLUB",
+        "category":  "Men",
+        "type":  "T-shirts",
+        "price":  999,
+        "mrp":  1599,
+        "color":  "Cream",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1521572163474-6864f9cf17ab",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed t-shirts piece in cream, made for comfortable everyday wear."
+    },
+    {
+        "id":  5,
+        "name":  "Linen Blend Trousers",
+        "brand":  "NORTH \u0026 CO.",
+        "category":  "Men",
+        "type":  "Trousers",
+        "price":  1799,
+        "mrp":  2799,
+        "color":  "Sand",
+        "sizes":  [
+                      "30",
+                      "32",
+                      "34",
+                      "36"
+                  ],
+        "image":  "photo-1473966968600-fa801b869a1a",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed trousers piece in sand, made for comfortable everyday wear."
+    },
+    {
+        "id":  6,
+        "name":  "Lightweight Bomber Jacket",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Jackets",
+        "price":  2699,
+        "mrp":  4499,
+        "color":  "Olive",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1551028719-00167b16eac5",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed jackets piece in olive, made for comfortable everyday wear."
+    },
+    {
+        "id":  7,
+        "name":  "Graphic Weekend Tee",
+        "brand":  "MONDAY CLUB",
+        "category":  "Men",
+        "type":  "T-shirts",
+        "price":  699,
+        "mrp":  1199,
+        "color":  "White",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1523381210434-271e8be1f52b",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed t-shirts piece in white, made for comfortable everyday wear."
+    },
+    {
+        "id":  8,
+        "name":  "Everyday Chino",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Trousers",
+        "price":  1599,
+        "mrp":  2499,
+        "color":  "Stone",
+        "sizes":  [
+                      "30",
+                      "32",
+                      "34",
+                      "36"
+                  ],
+        "image":  "photo-1517438476312-10d79c077509",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed trousers piece in stone, made for comfortable everyday wear."
+    },
+    {
+        "id":  9,
+        "name":  "Soft Touch Crewneck",
+        "brand":  "NORTH \u0026 CO.",
+        "category":  "Men",
+        "type":  "Sweaters",
+        "price":  1999,
+        "mrp":  3299,
+        "color":  "Charcoal",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1618354691373-d851c5c3a990",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed sweaters piece in charcoal, made for comfortable everyday wear."
+    },
+    {
+        "id":  10,
+        "name":  "Canvas Utility Shirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1399,
+        "mrp":  2299,
+        "color":  "Khaki",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1598033129183-c4f50c736f10",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shirts piece in khaki, made for comfortable everyday wear."
+    },
+    {
+        "id":  11,
+        "name":  "Floral Midi Dress",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Dresses",
+        "price":  2199,
+        "mrp":  3599,
+        "color":  "Floral",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "badge":  "New",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed dresses piece in floral, made for comfortable everyday wear."
+    },
+    {
+        "id":  12,
+        "name":  "Tailored Wide Leg Pants",
+        "brand":  "THREADLINE",
+        "category":  "Women",
+        "type":  "Trousers",
+        "price":  1899,
+        "mrp":  2999,
+        "color":  "Black",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1506629905607-d9e7d1ad7d4a",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed trousers piece in black, made for comfortable everyday wear."
+    },
+    {
+        "id":  13,
+        "name":  "Ribbed Everyday Tank",
+        "brand":  "MONDAY CLUB",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  799,
+        "mrp":  1299,
+        "color":  "Ivory",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1551163943-3f6a855d1153",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed tops piece in ivory, made for comfortable everyday wear."
+    },
+    {
+        "id":  14,
+        "name":  "Relaxed Denim Jacket",
+        "brand":  "THREADLINE",
+        "category":  "Women",
+        "type":  "Jackets",
+        "price":  2499,
+        "mrp":  3999,
+        "color":  "Denim",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1543076447-215ad9ba6923",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed jackets piece in denim, made for comfortable everyday wear."
+    },
+    {
+        "id":  15,
+        "name":  "Everyday Cotton Kurta",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Kurtas",
+        "price":  1599,
+        "mrp":  2499,
+        "color":  "Rose",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1583391733956-6c78276477e8",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed kurtas piece in rose, made for comfortable everyday wear."
+    },
+    {
+        "id":  16,
+        "name":  "Pleated Satin Skirt",
+        "brand":  "THREADLINE",
+        "category":  "Women",
+        "type":  "Skirts",
+        "price":  1799,
+        "mrp":  2899,
+        "color":  "Champagne",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1583496661160-fb5886a0aaaa",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed skirts piece in champagne, made for comfortable everyday wear."
+    },
+    {
+        "id":  17,
+        "name":  "Soft Knit Cardigan",
+        "brand":  "NORTH \u0026 CO.",
+        "category":  "Women",
+        "type":  "Sweaters",
+        "price":  2299,
+        "mrp":  3699,
+        "color":  "Oatmeal",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1576566588028-4147f3842f27",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed sweaters piece in oatmeal, made for comfortable everyday wear."
+    },
+    {
+        "id":  18,
+        "name":  "Classic White Sneakers",
+        "brand":  "THREADLINE",
+        "category":  "Women",
+        "type":  "Shoes",
+        "price":  1999,
+        "mrp":  3299,
+        "color":  "White",
+        "sizes":  [
+                      "36",
+                      "37",
+                      "38",
+                      "39"
+                  ],
+        "image":  "photo-1543163521-1bf539c55dd2",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shoes piece in white, made for comfortable everyday wear."
+    },
+    {
+        "id":  19,
+        "name":  "Linen Button Down",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Shirts",
+        "price":  1499,
+        "mrp":  2399,
+        "color":  "Sky",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1551488831-00ddcb6c6bd3",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shirts piece in sky, made for comfortable everyday wear."
+    },
+    {
+        "id":  20,
+        "name":  "City Day Tote",
+        "brand":  "THREADLINE",
+        "category":  "Women",
+        "type":  "Bags",
+        "price":  1299,
+        "mrp":  2199,
+        "color":  "Tan",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1548036328-c9fa89d128fa",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed bags piece in tan, made for comfortable everyday wear."
+    },
+    {
+        "id":  21,
+        "name":  "Mini Explorer Hoodie",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Hoodies",
+        "price":  1099,
+        "mrp":  1799,
+        "color":  "Coral",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1503919005314-30d93d07d823",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed hoodies piece in coral, made for comfortable everyday wear."
+    },
+    {
+        "id":  22,
+        "name":  "Play All Day Tee",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  499,
+        "mrp":  899,
+        "color":  "Yellow",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed t-shirts piece in yellow, made for comfortable everyday wear."
+    },
+    {
+        "id":  23,
+        "name":  "Easy Pull-On Joggers",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Bottoms",
+        "price":  799,
+        "mrp":  1299,
+        "color":  "Navy",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519457431-44ccd64a579b",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed bottoms piece in navy, made for comfortable everyday wear."
+    },
+    {
+        "id":  24,
+        "name":  "Sunny Day Dress",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Dresses",
+        "price":  999,
+        "mrp":  1599,
+        "color":  "Pink",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1503944583220-79d8926ad5e2",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed dresses piece in pink, made for comfortable everyday wear."
+    },
+    {
+        "id":  25,
+        "name":  "Colorblock Rain Jacket",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Jackets",
+        "price":  1499,
+        "mrp":  2399,
+        "color":  "Blue",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed jackets piece in blue, made for comfortable everyday wear."
+    },
+    {
+        "id":  26,
+        "name":  "Everyday Canvas Shoes",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Shoes",
+        "price":  1199,
+        "mrp":  1899,
+        "color":  "White",
+        "sizes":  [
+                      "28",
+                      "30",
+                      "32"
+                  ],
+        "image":  "photo-1514989940723-e8e51635b782",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shoes piece in white, made for comfortable everyday wear."
+    },
+    {
+        "id":  27,
+        "name":  "Stripe Cotton Shirt",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Shirts",
+        "price":  899,
+        "mrp":  1499,
+        "color":  "Blue",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed shirts piece in blue, made for comfortable everyday wear."
+    },
+    {
+        "id":  28,
+        "name":  "Cosy Zip-Up Fleece",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "Hoodies",
+        "price":  1299,
+        "mrp":  1999,
+        "color":  "Lilac",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519457431-44ccd64a579b",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed hoodies piece in lilac, made for comfortable everyday wear."
+    },
+    {
+        "id":  29,
+        "name":  "Classic Aviator Sunglasses",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  899,
+        "mrp":  1499,
+        "color":  "Gold",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1511499767150-a48a237f0083",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed accessories piece in gold, made for comfortable everyday wear."
+    },
+    {
+        "id":  30,
+        "name":  "Minimal Leather Belt",
+        "brand":  "NORTH \u0026 CO.",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  999,
+        "mrp":  1699,
+        "color":  "Brown",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1624222247344-550fb8bb0733",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed accessories piece in brown, made for comfortable everyday wear."
+    },
+    {
+        "id":  31,
+        "name":  "Everyday Crossbody",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Bags",
+        "price":  1599,
+        "mrp":  2599,
+        "color":  "Black",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1548036328-c9fa89d128fa",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed bags piece in black, made for comfortable everyday wear."
+    },
+    {
+        "id":  32,
+        "name":  "Ribbed Beanie",
+        "brand":  "NORTH \u0026 CO.",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  499,
+        "mrp":  899,
+        "color":  "Grey",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1576871337622-98d48d1cf531",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed accessories piece in grey, made for comfortable everyday wear."
+    },
+    {
+        "id":  33,
+        "name":  "Soft Weekend Scarf",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  799,
+        "mrp":  1299,
+        "color":  "Rust",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1601924994987-69e26d50dc26",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed accessories piece in rust, made for comfortable everyday wear."
+    },
+    {
+        "id":  34,
+        "name":  "Canvas Everyday Cap",
+        "brand":  "MONDAY CLUB",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  599,
+        "mrp":  999,
+        "color":  "Green",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1588850561407-ed78c282e89b",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed accessories piece in green, made for comfortable everyday wear."
+    },
+    {
+        "id":  35,
+        "name":  "Polished Hoop Earrings",
+        "brand":  "DAISY DAYS",
+        "category":  "Accessories",
+        "type":  "Jewellery",
+        "price":  699,
+        "mrp":  1199,
+        "color":  "Gold",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1535632066927-ab7c9ab60908",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed jewellery piece in gold, made for comfortable everyday wear."
+    },
+    {
+        "id":  36,
+        "name":  "Daily Carry Backpack",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Bags",
+        "price":  2299,
+        "mrp":  3699,
+        "color":  "Olive",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1553062407-98eeb64c6a62",
+        "rating":  4.6,
+        "description":  "A thoughtfully designed bags piece in olive, made for comfortable everyday wear."
+    },
+    {
+        "id":  37,
+        "name":  "Textured Poplin Shirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1268,
+        "mrp":  2100,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.6,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  38,
+        "name":  "Everyday Linen Shirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1405,
+        "mrp":  2300,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.7,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  39,
+        "name":  "Relaxed Check Shirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1542,
+        "mrp":  2500,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.8,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  40,
+        "name":  "Soft Cotton Henley",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1679,
+        "mrp":  2700,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.1,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  41,
+        "name":  "Modern Utility Overshirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1816,
+        "mrp":  3000,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.2,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  42,
+        "name":  "Weekend Chambray Shirt",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  1953,
+        "mrp":  3200,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.3,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  43,
+        "name":  "Classic Stripe Polo",
+        "brand":  "THREADLINE",
+        "category":  "Men",
+        "type":  "Shirts",
+        "price":  2090,
+        "mrp":  3400,
+        "color":  "Blue",
+        "sizes":  [
+                      "S",
+                      "M",
+                      "L",
+                      "XL"
+                  ],
+        "image":  "photo-1596755094514-f87e34085b2c",
+        "rating":  4.4,
+        "description":  "A versatile blue shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  44,
+        "name":  "Everyday Wrap Blouse",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  2227,
+        "mrp":  3600,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.5,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  45,
+        "name":  "Soft Cotton Tunic",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  2364,
+        "mrp":  3800,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.6,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  46,
+        "name":  "Textured Weekend Top",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  2501,
+        "mrp":  4100,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.7,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  47,
+        "name":  "Classic Printed Shirt",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  2638,
+        "mrp":  4300,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.8,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  48,
+        "name":  "Easy Linen Blouse",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  2775,
+        "mrp":  4500,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.1,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  49,
+        "name":  "Ribbed Knit Top",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  712,
+        "mrp":  1200,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.2,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  50,
+        "name":  "Relaxed Weekend Dress",
+        "brand":  "DAISY DAYS",
+        "category":  "Women",
+        "type":  "Tops",
+        "price":  849,
+        "mrp":  1400,
+        "color":  "Rose",
+        "sizes":  [
+                      "XS",
+                      "S",
+                      "M",
+                      "L"
+                  ],
+        "image":  "photo-1595777457583-95e059d581b8",
+        "rating":  4.3,
+        "description":  "A versatile rose tops piece made for comfortable everyday wear."
+    },
+    {
+        "id":  51,
+        "name":  "Little Explorer Tee",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  986,
+        "mrp":  1600,
+        "color":  "Multi",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.4,
+        "description":  "A versatile multi t-shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  52,
+        "name":  "Playtime Stripe Tee",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  1123,
+        "mrp":  1800,
+        "color":  "Multi",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.5,
+        "description":  "A versatile multi t-shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  53,
+        "name":  "Weekend Graphic Tee",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  1260,
+        "mrp":  2100,
+        "color":  "Multi",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.6,
+        "description":  "A versatile multi t-shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  54,
+        "name":  "Soft Cotton Shorts",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  1397,
+        "mrp":  2300,
+        "color":  "Multi",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.7,
+        "description":  "A versatile multi t-shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  55,
+        "name":  "Everyday Kids Hoodie",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  1534,
+        "mrp":  2500,
+        "color":  "Multi",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.8,
+        "description":  "A versatile multi t-shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  56,
+        "name":  "Sunny Day Shirt",
+        "brand":  "LITTLE LOOP",
+        "category":  "Kids",
+        "type":  "T-shirts",
+        "price":  1671,
+        "mrp":  2700,
+        "color":  "Multi",
+        "sizes":  [
+                      "2-3Y",
+                      "4-5Y",
+                      "6-7Y"
+                  ],
+        "image":  "photo-1519238263530-99bdd11df2ea",
+        "rating":  4.1,
+        "description":  "A versatile multi t-shirts piece made for comfortable everyday wear."
+    },
+    {
+        "id":  57,
+        "name":  "Everyday Canvas Wallet",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  1808,
+        "mrp":  2900,
+        "color":  "Tan",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1548036328-c9fa89d128fa",
+        "rating":  4.2,
+        "description":  "A versatile tan accessories piece made for comfortable everyday wear."
+    },
+    {
+        "id":  58,
+        "name":  "Classic Weekend Tote",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  1945,
+        "mrp":  3200,
+        "color":  "Tan",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1548036328-c9fa89d128fa",
+        "rating":  4.3,
+        "description":  "A versatile tan accessories piece made for comfortable everyday wear."
+    },
+    {
+        "id":  59,
+        "name":  "Soft Knit Gloves",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  2082,
+        "mrp":  3400,
+        "color":  "Tan",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1548036328-c9fa89d128fa",
+        "rating":  4.4,
+        "description":  "A versatile tan accessories piece made for comfortable everyday wear."
+    },
+    {
+        "id":  60,
+        "name":  "Minimal Travel Pouch",
+        "brand":  "THREADLINE",
+        "category":  "Accessories",
+        "type":  "Accessories",
+        "price":  2219,
+        "mrp":  3600,
+        "color":  "Tan",
+        "sizes":  [
+                      "One Size"
+                  ],
+        "image":  "photo-1548036328-c9fa89d128fa",
+        "rating":  4.5,
+        "description":  "A versatile tan accessories piece made for comfortable everyday wear."
+    }
+]

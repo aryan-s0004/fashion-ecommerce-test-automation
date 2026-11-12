@@ -1,0 +1,3 @@
+import{test,expect}from'@playwright/test';
+test('main category navigation opens the selected listing',async({page})=>{await page.goto('/');for(const name of ['Men','Women','Kids']){await page.getByRole('button',{name,exact:true}).first().click();await expect(page.locator('.listing h2')).toContainText(name);await expect(page.locator('.card').first()).toBeVisible()}});
+test('footer informational page and footer navigation work',async({page})=>{await page.goto('/');await page.getByRole('button',{name:'Our story'}).click();await expect(page.getByRole('heading',{name:/Good clothes/i})).toBeVisible();await page.getByRole('button',{name:'Meet the collection'}).click();await expect(page.locator('.listing')).toBeVisible()});

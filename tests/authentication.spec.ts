@@ -1,0 +1,4 @@
+import{test,expect}from'@playwright/test';import{LoginPage}from'./pages/Pages';
+test('valid mock login and logout',async({page})=>{await page.goto('/');const l=new LoginPage(page);await l.open();await l.login();await expect(page.getByText(/Signed in as Alex Morgan/)).toBeVisible();await page.getByRole('button',{name:'Sign out'}).click();await expect(page.getByRole('heading',{name:'A good place to start.'})).toBeVisible()});
+test('invalid mock login is rejected',async({page})=>{await page.goto('/');const l=new LoginPage(page);await l.open();await l.login('wrong@example.com','badpassword');await expect(page.getByRole('status')).toContainText('did not match')});
+test('native validation requires email and password',async({page})=>{await page.goto('/');const l=new LoginPage(page);await l.open();await page.getByRole('button',{name:'Continue'}).click();await expect(page.getByLabel('Email address')).toHaveAttribute('required','')});
